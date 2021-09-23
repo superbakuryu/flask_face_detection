@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="starter-template">
-            <h1>Bài tập ứng dụng</h1>
+            <a href="/"><h1>Bài tập ứng dụng</h1></a>
             <p class="text-muted">Vui lòng chọn ảnh trước khi <strong>Nhận diện</strong></p>
         </div>
     </div>
@@ -35,7 +35,7 @@
             Nhận diện <strong>{{ num_faces }}</strong> khuôn mặt!
         </div>
         {% if image_to_show %}
-        <div>
+        <div id="image_to_show">
             <img src="{{ image_to_show }}">
         </div>
         {% endif %}
@@ -58,6 +58,10 @@
                 output.src = URL.createObjectURL(event.target.files[0]);
                 output.onload = function () {
                     URL.revokeObjectURL(output.src) // free memory
+                }
+                var image_to_show = document.getElementById('image_to_show');
+                if (image_to_show) {
+                    document.getElementById('image_to_show').style.display = 'none';
                 }
             };
         </script>
